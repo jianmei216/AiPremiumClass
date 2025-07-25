@@ -30,6 +30,7 @@ if __name__ == '__main__':
 
     # 构建RAG工具
     search = TavilySearchResults(max_results=2)
+
     embedding_model = OpenAIEmbeddings(
         model="embedding-3",
         api_key=os.environ['OPENAI_API_KEY'],
@@ -85,7 +86,7 @@ executor = AgentExecutor(
     verbose=True)
 
 # 运行agent 
-# msgs = executor.invoke({"input":"查询一下北京明天天气如何"})
-msgs = executor.invoke({"input":"语言模型最新的学习方法是什么？"})
+# msgs = executor.invoke({"input":"查询一下北京天气如何"})
+msgs = executor.invoke({"input":"如何让模型 “还原” 文字背后隐藏的思考？"})
 
 print(msgs['output'])
